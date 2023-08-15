@@ -61,7 +61,7 @@ class Picole(ModelBase):
                                                                      backref='conservante', lazy='joined')
 
     # Um picolé pode ter vários aditivos nutritivos ou nenhum
-    aditivos_nutritivos: Mapped[Optional[List[AditivoNutritivo]]] = relationship('AditivoNtritivo',
+    aditivos_nutritivos: Mapped[Optional[List[AditivoNutritivo]]] = relationship('AditivoNutritivo',
                                                                                  secondary=aditivos_nutritivos_picole,
                                                                                  backref='aditivo_nutritivo',
                                                                                  lazy='joined')

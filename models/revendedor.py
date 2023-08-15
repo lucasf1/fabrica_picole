@@ -8,7 +8,8 @@ class Revendedor(ModelBase):
     __tablename__: str = 'revendedores'
 
     id: Mapped[int] = mapped_column(BIGINT, primary_key=True, autoincrement=True)
-    nome: Mapped[str] = mapped_column(String(45), unique=True, nullable=False)
+
+    cnpj: Mapped[str] = mapped_column(String(45), unique=True, nullable=False)
     razao_social: Mapped[str] = mapped_column(String(100), nullable=False)
     contato: Mapped[str] = mapped_column(String(100), nullable=False)
 

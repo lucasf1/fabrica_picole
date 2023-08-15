@@ -13,7 +13,7 @@ class Lote(ModelBase):
     id: Mapped[int] = mapped_column(BIGINT, primary_key=True, autoincrement=True)
 
     id_tipo_picole: Mapped[int] = mapped_column(ForeignKey('tipos_picole.id'))  # tabela.campo
-    tipo_picole: Mapped[TipoPicole] = relationship(back_populates='TipoPicole', lazy='joined') # conf interna do SQL Alchemy
+    tipo_picole: Mapped[TipoPicole] = relationship(lazy='joined') # conf interna do SQL Alchemy
 
     quantidade: Mapped[int] = mapped_column(nullable=False)
 
