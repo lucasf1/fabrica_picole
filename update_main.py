@@ -12,7 +12,7 @@ from models.picole import Picole
 def select_filtro_picole(id_picole: int) -> None:
     with create_session() as session:
 
-        picole: Picole = session.query(Picole).where(Picole.id == id_picole).one()
+        picole: Picole = session.query(Picole).where(Picole.id == id_picole).one_or_none()
 
         if picole:
             print(f'ID: {picole.id}')

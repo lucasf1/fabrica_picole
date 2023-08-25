@@ -25,8 +25,8 @@ class NotaFiscal(ModelBase):
     numero_serie: Mapped[str] = mapped_column(String(45), unique=True, nullable=False)
     descricao: Mapped[str] = mapped_column(String(200), nullable=False)
 
-    id_revendedor: Mapped[int] = mapped_column(ForeignKey('revendedores.id'))
-    revendedor: Mapped[Revendedor] = relationship('Revendedor', lazy='joined')
+    id_revendedor: Mapped[int] = mapped_column(ForeignKey('revendedores.id', ondelete="CASCADE"))
+    revendedor: Mapped[Revendedor] = relationship('Revendedor', lazy='joined', cascade="delete")
 
     # Uma nota fiscal pode ter vários lotes e um lote está ligado a uma nota fiscal
     lotes: Mapped[List[Lote]] = relationship('Lote', secondary=lotes_nota_fiscal, backref='lote', lazy='dynamic')
